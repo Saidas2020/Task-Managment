@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# 🗂️ Project Task Board Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Description
 
-## Available Scripts
+This is a full-stack task management application that allows users to create projects, manage tasks within those projects, and add comments to tasks. It helps in tracking progress, organizing work, and monitoring deadlines efficiently.
 
-In the project directory, you can run:
+The application consists of a React frontend and an ASP.NET Core Web API backend, with data stored in a SQLite database using Entity Framework Core.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
 
-### `npm test`
+* React (Functional Components + Hooks)
+* React Router
+* Axios
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
 
-### `npm run build`
+* ASP.NET Core Web API
+* Entity Framework Core
+* SQLite Database
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Create, update, and delete projects
+* Add tasks under projects
+* Filter, sort, and paginate tasks
+* Add and delete comments on tasks
+* Dashboard with:
 
-### `npm run eject`
+  * Total projects
+  * Tasks by status
+  * Overdue tasks
+  * Upcoming tasks (next 7 days)
+* Validation and error handling
+* Seed data on first run
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ⚙️ How to Run the Application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🔹 Backend Setup
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Navigate to backend project Named as solution TaskManagementBoard:
 
-## Learn More
+```
+cd TaskManagementBoard.api
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Apply database migrations:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+dotnet ef database update
+```
 
-### Code Splitting
+3. Run the API:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+dotnet run --launch-profile https
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 🔹 Frontend Setup
 
-### Making a Progressive Web App
+1. Navigate to frontend project:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+cd task-board-ui
+```
 
-### Advanced Configuration
+2. Install dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+npm install
+```
 
-### Deployment
+3. Start the React app:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+npm start
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🌐 API Base URL
+
+Make sure the frontend API base URL is correctly configured (e.g., in axios or environment file):
+
+```
+https://localhost:7065/api
+```
+
+---
+
+## 🧪 Sample Data
+
+The application automatically seeds sample data (projects, tasks, and comments) on first run so that the dashboard and pages display meaningful information immediately.
+
+---
+
+## ⚠️ Assumptions & Notes
+
+* Priority and Status are stored as strings for simplicity.
+* Basic validation is implemented using Data Annotations.
+* DTOs are used in GET APIs to avoid circular references.
+* Global exception middleware is implemented for clean error responses.
+* UI is kept simple and functional as per assignment scope.
+* No authentication/authorization is implemented.
+
+---
+
+
+## ✅ Conclusion
+
+This project demonstrates a complete full-stack implementation with clean architecture, proper API design, and a functional React UI, meeting all core requirements of the assignment.
+
+---
